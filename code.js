@@ -1,6 +1,6 @@
 let pi = Math.PI;
 let c_x = 500;
-let c_y = 300;
+let c_y = 220;
 let a = random(0.1, 0.7);
 let b = random(0.1, 0.7);
 let c = random(0, 2 * pi);
@@ -181,18 +181,18 @@ function create_blob() {
 	let smooth = is_smooth(proper_xy[0], proper_xy[1]) || !ENFORCE_SMOOTH;
 
 	if (!smooth) {
-		$('g').html('<path id="blob" d="" stroke="#000" fill="#000" fill-opacity="' + $('#fill:checked').length + '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
+		$('g').html('<path id="blob" d="" stroke="#2E2A33" fill="#544F5E" fill-opacity="' + $('#fill:checked').length + '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
 		create_blob();
 	} else {
-		$('g').html('<path id="blob" d="" stroke="#000" fill="#000" fill-opacity="' + $('#fill:checked').length + '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
+		$('g').html('<path id="blob" d="" stroke="#2E2A33" fill="#544F5E" fill-opacity="' + $('#fill:checked').length + '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
 		$('#blob').attr('d', path);
 		if (!HANDLES) { return; }
 		for (let i = 2; i < proper_xy[0].length - 3; i += 3) {
-			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) + ' L ' + (proper_xy[0][i + 2] + c_x) + ',' + (proper_xy[1][i + 2] + c_y) + '\" stroke=\"#00F\" fill-opacity=\"0\" stroke-width=\"3\" stroke-linecap=\"round\"></path>');
+			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) + ' L ' + (proper_xy[0][i + 2] + c_x) + ',' + (proper_xy[1][i + 2] + c_y) + '\" stroke=\"#93B5C6\" fill-opacity=\"0\" stroke-width=\"3\" stroke-linecap=\"round\"></path>');
 		}
-		$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][proper_xy[0].length - 2] + c_x) + ',' + (proper_xy[1][proper_xy[1].length - 2] + c_y) + ' L ' + (proper_xy[0][1] + c_x) + ',' + (proper_xy[1][1] + c_y) + '\" stroke=\"#00F\" fill-opacity=\"0\" stroke-width=\"2\" stroke-linecap=\"round\"></path>');
+		$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][proper_xy[0].length - 2] + c_x) + ',' + (proper_xy[1][proper_xy[1].length - 2] + c_y) + ' L ' + (proper_xy[0][1] + c_x) + ',' + (proper_xy[1][1] + c_y) + '\" stroke=\"#93B5C6\" fill-opacity=\"0\" stroke-width=\"2\" stroke-linecap=\"round\"></path>');
 		for (let i = 0; i < proper_xy[0].length; i++) {
-			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) + ' l 0.1,0 \" stroke=\"#F00\" fill-opacity=\"0\" stroke-width=\"7\" stroke-linecap=\"round\"></path>');
+			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) + ' l 0.1,0 \" stroke=\"#F0CF65\" fill-opacity=\"0\" stroke-width=\"7\" stroke-linecap=\"round\"></path>');
 		}
 	}
 }

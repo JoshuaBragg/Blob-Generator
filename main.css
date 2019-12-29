@@ -1,7 +1,12 @@
 .top-menu {
 	padding: 15px;
-	margin: 15px;
-	border: 2px solid black;
+	width: 100%;
+	box-shadow: 0 4px 5px -2px gray;
+	background: #F7F7F7;
+}
+
+body, svg {
+	background: #F7F7F7;
 }
 
 .tooltip {
