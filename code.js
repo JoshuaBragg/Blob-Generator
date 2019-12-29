@@ -40,6 +40,8 @@ function random(min, max) {
 	return Math.random() * (max - min) + min;
 }
 
+// Converts implied coordinates into a set of full coordinates for
+// both the handles and the points
 function convert_bezier_proper(x_coords, y_coords, init_handle_x, init_handle_y) {
 	let proper_x = [];
 	let proper_y = [];
@@ -160,7 +162,8 @@ function create_blob() {
 	let init_handle_x = init_handle * Math.cos(init_handle_point);
 	let init_handle_y = init_handle * Math.sin(init_handle_point);
 
-	let path = 'M ' + (x_coords[x_coords.length - 1] + c_x) + ',' + (y_coords[y_coords.length - 1] + c_y) + ' C ' + (2 * x_coords[x_coords.length - 1] - init_handle_x + c_x) + ',' + (2 * y_coords[y_coords.length - 1] - init_handle_y + c_y)
+	let path = 'M ' + (x_coords[x_coords.length - 1] + c_x) + ',' + (y_coords[y_coords.length - 1] + c_y) 
+				+ ' C ' + (2 * x_coords[x_coords.length - 1] - init_handle_x + c_x) + ',' + (2 * y_coords[y_coords.length - 1] - init_handle_y + c_y)
 				+ ' ' + (x_coords[0] + c_x) + ',' + (y_coords[0] + c_y)
 				+ ' ' + (x_coords[1] + c_x) + ',' + (y_coords[1] + c_y);
 
@@ -181,18 +184,25 @@ function create_blob() {
 	let smooth = is_smooth(proper_xy[0], proper_xy[1]) || !ENFORCE_SMOOTH;
 
 	if (!smooth) {
-		$('g').html('<path id="blob" d="" stroke="#2E2A33" fill="#544F5E" fill-opacity="' + $('#fill:checked').length + '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
+		$('g').html('<path id="blob" d="" stroke="#2E2A33" fill="#544F5E" fill-opacity="' + $('#fill:checked').length 
+			+ '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
 		create_blob();
 	} else {
-		$('g').html('<path id="blob" d="" stroke="#2E2A33" fill="#544F5E" fill-opacity="' + $('#fill:checked').length + '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
+		$('g').html('<path id="blob" d="" stroke="#2E2A33" fill="#544F5E" fill-opacity="' + $('#fill:checked').length 
+			+ '" stroke-width="' + parseInt($('#stroke_width').val()) + '" stroke-linecap="round"></path>');
 		$('#blob').attr('d', path);
 		if (!HANDLES) { return; }
 		for (let i = 2; i < proper_xy[0].length - 3; i += 3) {
-			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) + ' L ' + (proper_xy[0][i + 2] + c_x) + ',' + (proper_xy[1][i + 2] + c_y) + '\" stroke=\"#93B5C6\" fill-opacity=\"0\" stroke-width=\"3\" stroke-linecap=\"round\"></path>');
+			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) 
+				+ ' L ' + (proper_xy[0][i + 2] + c_x) + ',' + (proper_xy[1][i + 2] + c_y) 
+				+ '\" stroke=\"#93B5C6\" fill-opacity=\"0\" stroke-width=\"3\" stroke-linecap=\"round\"></path>');
 		}
-		$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][proper_xy[0].length - 2] + c_x) + ',' + (proper_xy[1][proper_xy[1].length - 2] + c_y) + ' L ' + (proper_xy[0][1] + c_x) + ',' + (proper_xy[1][1] + c_y) + '\" stroke=\"#93B5C6\" fill-opacity=\"0\" stroke-width=\"2\" stroke-linecap=\"round\"></path>');
+		$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][proper_xy[0].length - 2] + c_x) + ',' + (proper_xy[1][proper_xy[1].length - 2] + c_y) 
+			+ ' L ' + (proper_xy[0][1] + c_x) + ',' + (proper_xy[1][1] + c_y) 
+			+ '\" stroke=\"#93B5C6\" fill-opacity=\"0\" stroke-width=\"2\" stroke-linecap=\"round\"></path>');
 		for (let i = 0; i < proper_xy[0].length; i++) {
-			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) + ' l 0.1,0 \" stroke=\"#F0CF65\" fill-opacity=\"0\" stroke-width=\"7\" stroke-linecap=\"round\"></path>');
+			$('g').html($('g').html() + '<path d=\"M ' + (proper_xy[0][i] + c_x) + ',' + (proper_xy[1][i] + c_y) 
+				+ ' l 0.1,0 \" stroke=\"#F0CF65\" fill-opacity=\"0\" stroke-width=\"7\" stroke-linecap=\"round\"></path>');
 		}
 	}
 }
