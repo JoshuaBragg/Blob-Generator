@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="main.css">
+	<title>Blob Generator</title>
+</head>
+<body>
+	<div class="top-menu">
+		<button id="generate_button">Generate</button> |
+		MIN POINTS <input type="text" id="min_points" value="4"> |
+		MAX POINTS <input type="text" id="max_points" value="7"> |
+		G SCALE <input type="text" id="g_scale" value="60"> |
+		H SCALE <input type="text" id="h_scale" value="30"> |
+		FILL <input type="checkbox" id="fill"> |
+		STROKE WIDTH <input type="text" id="stroke_width" value="4"><br/><br/>
+		FIX A <input type="checkbox" id="fix_a"> |
+		FIX B <input type="checkbox" id="fix_b"> |
+		FIX C <input type="checkbox" id="fix_c"> |
+		<button id="run_button">Run</button><br/><br/>
+		HANDLES <input type="checkbox" id="handles"> | 
+		ENFORCE SMOOTH<div class="tooltip">*<span class="tooltip-text">Each individual bezier curve does not contain a cusp or a loop, however the combination of many such curves may result in loops</span></div>
+		<input type="checkbox" id="enforce_smooth" checked>
+	</div>
+	<svg viewbox="0 0 1000 600"><g><path id="blob" d="" stroke="#000" fill="#000" fill-opacity="0" stroke-width="2" stroke-linecap="round"></path></g></svg>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.5/math.min.js"></script> -->
+<script type="text/javascript" src="code.js"></script>
+</html>
