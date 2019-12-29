@@ -181,6 +181,12 @@ function create_blob() {
 
 	let proper_xy = convert_bezier_proper(x_coords, y_coords, init_handle_x, init_handle_y);
 
+	// For large values of max points the smoothing isnt noticable
+	// and takes very long to complete
+	if (MAX_POINTS > 12) {
+		ENFORCE_SMOOTH = false;
+	}
+
 	let smooth = is_smooth(proper_xy[0], proper_xy[1]) || !ENFORCE_SMOOTH;
 
 	if (!smooth) {
