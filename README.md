@@ -2,7 +2,7 @@
 
 Generates randomly shaped smooth blobs in javascript. These blobs are represented as SVG paths utilizing cubic bezier curves to create to outline of the shape. Parameters are editable from the generator allowing for greater customizability and a wider range of generation. Path points and handle coordinates are generated from a polar graph (https://www.desmos.com/calculator/qaesyuxix3) with path coordinates being taken from g(x) and handle coordinates being taken from h(x).
 
-These blobs can be used in many ways within webpages to create infinite unique shapes that are rounded and smooth. One example of an application can be seen in this demo (http://joshbra.gg/Space-Site-Demo/) where the blobs are asteroids in the background of a fictional design company website.
+These blobs can be used in many ways within webpages to create infinite unique shapes that are rounded and smooth. This program was used in the creation of the [UofT AI website](https://uoft.ai/) where I used these blobs as asteroids in the background of the webpage.
 
 ### Example blobs:
 ![blob 1](https://i.gyazo.com/146962fdaba1efd2fb849b6d9871a93f.png)
